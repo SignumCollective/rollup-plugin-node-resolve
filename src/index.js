@@ -28,6 +28,9 @@ export default function nodeResolve ( options ) {
 
 			// disregard entry module
 			if ( !importer ) return null;
+			
+			// only match babel runtime
+			if ( !/^babel-runtime\//.test( importee ) ) return null;
 
 			const parts = importee.split( /[\/\\]/ );
 			let id = parts.shift();
