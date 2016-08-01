@@ -50,7 +50,7 @@ export default function nodeResolve ( options ) {
 				resolveId(
 					importee,
 					{
-						basedir: dirname( importer ),
+						basedir: __dirname,
 						packageFilter ( pkg ) {
 							if ( !useJsnext && !useMain && !useModule ) {
 								if ( skip === true ) accept( false );
