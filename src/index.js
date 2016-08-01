@@ -31,7 +31,7 @@ export default function nodeResolve ( options ) {
 
 			// only match babel runtime
 			// eslint-disable-next-line
-			if ( !/(node_modules\/)?((babel-runtime|core-js|regenerator-runtime)\/)+/.test( importee ) && !/(node_modules\/)?((babel-runtime|core-js|regenerator-runtime)\/)+/.test( importer ) ) return null;
+			if ( !/^(.*\/node_modules\/)?((babel-runtime|core-js|regenerator-runtime)\/)+/.test( importee ) && !/(node_modules\/)?((babel-runtime|core-js|regenerator-runtime)\/)+/.test( importer ) ) return null;
 
 			const parts = importee.split( /[\/\\]/ );
 			let id = parts.shift();
@@ -50,7 +50,7 @@ export default function nodeResolve ( options ) {
 				resolveId(
 					importee,
 					{
-						basedir: /(node_modules\/)?((babel-runtime|core-js|regenerator-runtime)\/)+/.test( importee ) ? __dirname : dirname( importer ),
+						basedir: /^(.*\/node_modules\/)?((babel-runtime|core-js|regenerator-runtime)\/)+/.test( importee ) ? __dirname : dirname( importer ),
 						packageFilter ( pkg ) {
 							if ( !useJsnext && !useMain && !useModule ) {
 								if ( skip === true ) accept( false );
