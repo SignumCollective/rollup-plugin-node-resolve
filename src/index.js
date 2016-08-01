@@ -50,7 +50,7 @@ export default function nodeResolve ( options ) {
 				resolveId(
 					importee,
 					{
-						basedir: __dirname,
+						basedir: /(node_modules\/)?((babel-runtime|core-js|regenerator-runtime)\/)+/.test( importee ) ? dirname( importer ) : __dirname,
 						packageFilter ( pkg ) {
 							if ( !useJsnext && !useMain && !useModule ) {
 								if ( skip === true ) accept( false );
