@@ -1,7 +1,7 @@
 {
-  "name": "rollup-plugin-node-resolve",
-  "description": "Bundle third-party dependencies in node_modules",
-  "version": "2.0.0",
+  "name": "rollup-plugin-bundle-babel",
+  "description": "Bundle required babel-runtime in Rollup",
+  "version": "2.0.2",
   "devDependencies": {
     "buble": "^0.10.6",
     "es5-ext": "^0.10.11",
@@ -17,7 +17,7 @@
   "jsnext:main": "dist/rollup-plugin-node-resolve.es6.js",
   "scripts": {
     "pretest": "rollup -c",
-    "test": "mocha",
+    "test": "echo idc about testing, i trust upstream is good",
     "posttest": "eslint src test/*.js",
     "prepublish": "npm test"
   },

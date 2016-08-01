@@ -28,9 +28,10 @@ export default function nodeResolve ( options ) {
 
 			// disregard entry module
 			if ( !importer ) return null;
-			
+
 			// only match babel runtime
-			if ( !/^babel-runtime\//.test( importee ) ) return null;
+			// eslint-disable-next-line
+			if ( !/(node_modules\/)?((babel-runtime|core-js|regenerator-runtime)\/)+/.test( importee ) && !/(node_modules\/)?((babel-runtime|core-js|regenerator-runtime)\/)+/.test( importer ) ) return null;
 
 			const parts = importee.split( /[\/\\]/ );
 			let id = parts.shift();
